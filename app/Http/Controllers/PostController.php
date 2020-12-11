@@ -28,4 +28,11 @@ class PostController extends Controller
 
         return view('posts', compact('posts'));
     }
+
+    public function showPostById($id)
+    {
+        $post = Post::where('id', $id)->first();
+
+        return view('post', compact('post'));
+    }
 }

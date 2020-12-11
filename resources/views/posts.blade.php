@@ -22,6 +22,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->body }}</td>                        
+                        <td><a href="/posts/{{ $post->id }}" class="btn btn-info">View</a></td>
                       </tr>
                   @endforeach
                 </tbody>

@@ -23,4 +23,6 @@ Route::get('/students', [StudentController::class, 'fetchStudents']);
 Route::get('/add-post', [PostController::class, 'showAddPost']);
 Route::post('/add-post', [PostController::class, 'addPost'])->name('post.add');
 Route::get('/posts', [PostController::class, 'showPost']);
+Route::get('/posts/{id}', [PostController::class, 'showPostById']);
+
 
