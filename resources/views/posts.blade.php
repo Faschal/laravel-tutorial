@@ -16,6 +16,11 @@
               <a href="/add-post" class="btn btn-success">Add New Post</a>
             </div>
             <div class="card-body">
+              @if (Session::has('post_deleted'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('post_deleted') }}
+                  </div>
+              @endif
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -30,8 +35,17 @@
                       <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>{{ $post->body }}</td>                        
-                        <td><a href="/posts/{{ $post->id }}" class="btn btn-info">View</a></td>
+                        <td>{{ $post->body }}</td>         
+                        <td> 
+                          <div class="row">
+                            <a href="/posts/{{ $post->id }}" class="btn btn-info">VIEW</a>                                                                            
+                            <form action="{{ route('post.delete', $post->id) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger ml-2">DELETE</button>
+                            </form>
+                          </div>                                                                              
+                        </td>
                       </tr>
                   @endforeach
                 </tbody>
