@@ -15,7 +15,7 @@
               <p>{{ $post->body }}</p>
             </div>
           </div>
-          <a href="{{ url()->previous() }}" class="btn btn-primary mt-2"> Back</a>
+          <a href="/posts" class="btn btn-primary mt-2"> Back</a>
         </div>
       </div>
     </div>

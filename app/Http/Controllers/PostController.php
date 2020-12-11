@@ -42,4 +42,21 @@ class PostController extends Controller
 
         return back()->with('post_deleted', 'Post has been deleted');
     }
+
+    public function showEditPost($id)
+    {
+        $post = Post::find($id);
+
+        return view('edit-post', compact('post'));
+    }
+
+    public function editPost(Request $request)
+    {
+        $post = Post::find($request->id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return back()->with('post_updated', 'Post has been updated');
+    }
 }

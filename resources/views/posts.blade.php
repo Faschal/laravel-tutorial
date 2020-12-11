@@ -38,13 +38,14 @@
                         <td>{{ $post->body }}</td>         
                         <td> 
                           <div class="row">
-                            <a href="/posts/{{ $post->id }}" class="btn btn-info">VIEW</a>                                                                            
+                            <a href="/posts/{{ $post->id }}" class="btn btn-info mr-2">VIEW</a>
+                            <a href="/edit-post/{{ $post->id }}" class="btn btn-success mr-2">EDIT</a>                                                                            
                             <form action="{{ route('post.delete', $post->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
-                              <button type="submit" class="btn btn-danger ml-2">DELETE</button>
-                            </form>
-                          </div>                                                                              
+                              <button type="submit" class="btn btn-danger">DELETE</button>
+                            </form>                            
+                          </div>                          
                         </td>
                       </tr>
                   @endforeach
